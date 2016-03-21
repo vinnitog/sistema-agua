@@ -1,0 +1,45 @@
+<div class="container">
+  <h1><span class="glyphicon glyphicon-user"> Novo Cliente </span></h1>
+  <%= form_for :client, url: clients_path, class: 'form' do |f| %>
+  <% if @client.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@client.errors.count, "error") %> prohibited
+        this client from being saved:
+      </h2>
+      <ul>
+        <% @client.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <div class="col-md-12">  
+      <%= f.label 'Nome' %><br>
+      <div class="col-md-4">
+        <%= f.text_field :name , class: 'form-control'%>
+      </div>
+    </div>
+   
+    <div class="col-md-12">
+      <%= f.label 'Endereço' %><br>
+      <div class="col-md-4">
+      <%= f.text_area :address, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="col-md-12"><br/>
+      <%= f.label 'Telefone' %><br>
+      <div class="col-md-4">
+        <%= f.text_field :tel, class: 'form-control' %>
+      </div>
+    </div><br/>
+   
+    <div class="col-md-12">
+      <%= f.submit 'Salvar', class: 'btn btn-success' %>
+      <%= link_to 'Voltar', clients_path, class: 'btn btn-default' %>
+    </div>
+  </div>
+  <% end %>
+</div>

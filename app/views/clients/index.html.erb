@@ -1,0 +1,27 @@
+<div class="container">
+  <h1><span class="glyphicon glyphicon-list-alt"> Clientes </span></h1>
+  <table class="table">
+    <tr>
+      <th>Nome</th>
+      <th>Endereço</th>
+      <th>Telefone</th>
+      <th>Visualizar</th>
+      <th>Editar</th>
+      <th>Deletar</th>
+    </tr>
+   
+    <% @clients.each do |client| %>
+      <tr>
+        <td><%= client.name %></td>
+        <td><%= client.address %></td>
+        <td><%= client.tel %></td>
+        <td><%= link_to 'Visualizar', client_path(client), class: 'btn btn-default' %></td>
+        <td><%= link_to 'Editar', edit_client_path(client), class: 'btn btn-default' %></td>
+        <td><%= link_to 'Deletar', client_path(client),
+                method: :delete,
+                data: { confirm: 'Tem certeza que quer deletar este cliente?' }, class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </table><br/>
+  <%= link_to 'Cadastrar Novo Cliente', new_client_path, class: 'btn btn-primary' %>
+</div>
