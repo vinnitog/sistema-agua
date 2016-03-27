@@ -1,13 +1,12 @@
 <div class="container">
-  <h1><span class="glyphicon glyphicon-user"> Novo Cliente </span></h1>
+  <h1 class="page-header"><span class="glyphicon glyphicon-user"> Novo Cliente </span></h1>
   <%= form_for :client, url: clients_path, class: 'form' do |f| %>
   <% if @client.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@client.errors.count, "error") %> prohibited
-        this client from being saved:
-      </h2>
+    <div class= "alert alert-danger" id="error_explanation">
       <ul>
+        <h2>
+          Ops!
+        </h2>
         <% @client.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>

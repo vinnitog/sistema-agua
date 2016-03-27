@@ -1,0 +1,21 @@
+<div class="container">
+<h1 class="page-header"><span class="glyphicon glyphicon-zoom-in"> 
+Produto: <%=@product.name%> </span></h1>
+  <div>
+  	<label>Nome:</label>
+  	<%= @product.name %>
+  </div>
+  <div>
+  	<label>Quantidade:</label>
+  	<%= @product.quantity %>
+  </div>
+  <div>
+  	<label>Preço:</label>
+  	<%= @product.price %>
+  </div>
+  <div>
+    <label>Marca:</label>
+    <%= @product.brand %>
+  </div>
+<%= link_to 'Voltar', products_path, class: 'btn btn-default' %>
+</div>

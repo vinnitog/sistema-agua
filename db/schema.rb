@@ -24,12 +24,12 @@ ActiveRecord::Schema.define(version: 20160320200819) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.decimal  "price",                  precision: 10
-    t.string   "category",   limit: 255
-    t.integer  "stock",      limit: 4
+    t.string   "name",       limit: 255
+    t.integer  "quantity",   limit: 4
+    t.float    "price",      limit: 24
     t.string   "brand",      limit: 255
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
 end

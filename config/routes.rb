@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :clients
-  resources :products
-  resources :api
+	resources :clients
+	resources :products 
 end

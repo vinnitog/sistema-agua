@@ -1,0 +1,52 @@
+<div class="container">
+  <h1 class="page-header"><span class="glyphicon glyphicon-edit"> 
+  Editar Produto </span></h1>
+  <%= form_for :product, url: product_path(@product), method: :patch do |f| %>
+    <% if @product.errors.any? %>
+      <div class= "alert alert-danger" id="error_explanation">
+        <ul>
+          <h2>
+            Ops!
+          </h2>
+          <% @product.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="form-group">
+      <div class="col-md-12">  
+        <%= f.label 'Nome do Produto' %><br>
+        <div class="col-md-4">
+          <%= f.text_field :name , class: 'form-control'%>
+        </div>
+      </div>
+     
+      <div class="col-md-12">
+        <%= f.label 'Quantidade do Produto' %><br>
+        <div class="col-md-4">
+        <%= f.text_field :quantity, class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="col-md-12"><br/>
+        <%= f.label 'Preço do Produto' %><br>
+        <div class="col-md-4">
+          <%= f.text_field :price, class: 'form-control' %>
+        </div>
+      </div>
+
+     <div class="col-md-12"><br/>
+      <%= f.label 'Marca do Produto' %><br>
+      <div class="col-md-4">
+        <%= f.select :brand,  options_for_select(['marca1', 'marca2']), {}, {required: 'true', autofocus: 'true', class: 'form-control'} %>
+      </div>
+    </div><br/>
+     
+      <div class="col-md-12">
+        <%= f.submit 'Atualizar', class: 'btn btn-success' %>
+        <%= link_to 'Voltar', products_path, class: 'btn btn-default' %>
+      </div>
+    </div> 
+  <% end %>
+</div>

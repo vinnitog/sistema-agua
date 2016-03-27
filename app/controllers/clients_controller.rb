@@ -1,15 +1,22 @@
 class ClientsController < ApplicationController
-  include HTTParty
 
   def index
     @clients = Client.all
-    #@response = HTTParty.get('http://localhost:3000/clients', body: {}.to_json)
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @clients }
+    end
     
   end
 
   def show
     @client = Client.find(params[:id])
-    #@response = HTTParty.get('http://localhost:3000/clients/#id', body: {}.to_json)
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @client }
+    end
   end
 
   def new
