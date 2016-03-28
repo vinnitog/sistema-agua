@@ -1,4 +1,5 @@
 class ClientsController < ApplicationController
+before_filter :authorize
 
   def index
     @clients = Client.all

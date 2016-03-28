@@ -21,6 +21,7 @@ module SistemaAgua
     # config.i18n.default_locale = :de
     config.i18n.available_locales = [:en, :"pt-BR"]
     config.i18n.default_locale = :"pt-BR"
+    config.encoding = "utf-8"
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
