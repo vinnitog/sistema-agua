@@ -38,7 +38,8 @@
     <div class="col-md-12"><br/>
       <%= f.label 'Marca do Produto' %><br>
       <div class="col-md-4">
-        <%= f.select :brand,  options_for_select(['marca1', 'marca2']), {}, {required: 'true', autofocus: 'true', class: 'form-control'} %>
+        <%= f.select(:brand, Product.all.collect {|p| [ p.brand, p.brand ] }, 
+                    {include_blank: true}) %>
       </div>
     </div><br/>
    

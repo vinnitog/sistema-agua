@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
 before_filter :authorize
 	
   def index
+  @brands = ['agua vitalicia', 'agua sofiazinha', 'agua cristal', 'agua lindoya']  
 	@products = Product.all
 
 	respond_to do |format|
