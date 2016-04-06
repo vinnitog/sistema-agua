@@ -1,0 +1,26 @@
+<div class="container">
+  <h1><span class="glyphicon glyphicon-list-alt"> Marcas </span></h1>
+  <table class="table">
+    <tr>
+      <th>Nome</th>
+      <th>Tipo</th>
+      <th>Visualizar</th>
+      <th>Editar</th>
+      <th>Deletar</th>
+    </tr>
+   
+    <% @brands.each do |brand| %>
+      <tr>
+        <td><%= brand.name %></td>
+        <td><%= brand.brand_type %></td>
+        <td><%= link_to 'Visualizar', brand_path(brand), class: 'btn btn-default' %></td>
+        <td><%= link_to 'Editar', edit_brand_path(brand), class: 'btn btn-default' %></td>
+        <td><%= link_to 'Deletar', brand_path(brand),
+                method: :delete,
+                data: { confirm: 'Tem certeza que quer deletar esta marca?' }, class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </table><br/>
+  <%= link_to 'Cadastrar Nova Marca', new_brand_path, class: 'btn btn-primary' %>
+  <%= link_to 'Voltar', home_index_path, class: 'btn btn-default' %>
+</div>

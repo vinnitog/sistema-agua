@@ -57,4 +57,4 @@ before_filter :authorize
   def client_params
     params.require(:client).permit(:name, :address, :tel, :cpf, :rg)
   end
-  end
+end

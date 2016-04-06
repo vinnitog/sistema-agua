@@ -38,8 +38,12 @@
     <div class="col-md-12"><br/>
       <%= f.label 'Marca do Produto' %><br>
       <div class="col-md-4">
-        <%= f.select(:brand, Product.all.collect {|p| [ p.brand, p.brand ] }, 
-                    {include_blank: true}) %>
+       <select name="marca" class="form-control">
+          <% brands = Brand.all %>
+          <% brands.each do |brand| %>
+            <option value="<%= brand.id %>"><%= brand.name %></option>
+          <% end %>
+       </select>
       </div>
     </div><br/>
    

@@ -11,11 +11,11 @@ Produto: <%=@product.name%> </span></h1>
   </div>
   <div>
   	<label>Preço:</label>
-  	<%= @product.price %>
+  	<%= number_with_precision(@product.price, precision: 2) %>
   </div>
   <div>
     <label>Marca:</label>
-    <%= @product.brand %>
+    <%= @product.brand.name %>
   </div>
 <%= link_to 'Voltar', products_path, class: 'btn btn-default' %>
 </div>

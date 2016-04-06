@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 	resources :home
 	resources :clients
 	resources :products 
+  resources :brands
 
   get '/entrar' => 'sessions#new'
   post '/entrar' => 'sessions#create'

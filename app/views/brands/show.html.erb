@@ -1,0 +1,13 @@
+<div class="container">
+<h1 class="page-header"><span class="glyphicon glyphicon-zoom-in"> 
+Marca: <%=@brand.name%> </span></h1>
+  <div>
+    <label>Nome:</label>
+    <%= @brand.name %>
+  </div>
+  <div>
+    <label>Tipo:</label>
+    <%= @brand.brand_type %>
+  </div>
+<%= link_to 'Voltar', brands_path, class: 'btn btn-default' %>
+</div>

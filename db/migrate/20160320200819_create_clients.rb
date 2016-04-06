@@ -6,6 +6,7 @@ class CreateClients < ActiveRecord::Migration
     	t.string :address
     	t.string :cpf
     	t.string :rg
+      
       t.timestamps null: false
     end
   end

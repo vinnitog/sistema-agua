@@ -1,14 +1,12 @@
 class ProductsController < ApplicationController
 before_filter :authorize
-	
-  def index
-  @brands = ['agua vitalicia', 'agua sofiazinha', 'agua cristal', 'agua lindoya']  
-	@products = Product.all
-
-	respond_to do |format|
-	  format.html
-	  format.json { render json: @products }
-	end
+  
+  def index  
+  @products = Product.all
+  respond_to do |format|
+    format.html
+    format.json { render json: @products }
+  end
     
   end
 
@@ -23,6 +21,7 @@ before_filter :authorize
 
   def new
     @product = Product.new
+    @brand = Brand.new
   end
 
   def edit
@@ -31,6 +30,8 @@ before_filter :authorize
 
   def create
     @product = Product.new(product_params)
+    @product.brand = Brand.find_by_id(params['marca'])
+
     if @product.save
       redirect_to @product
     else
@@ -56,6 +57,6 @@ before_filter :authorize
   private
 
   def product_params
-    params.require(:product).permit(:name, :quantity, :price, :brand)
+    params.require(:product).permit(:name, :quantity, :price)
   end
 end
