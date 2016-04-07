@@ -1,7 +1,7 @@
 <div class="container">
   <h1 class="page-header"><span class="glyphicon glyphicon-edit"> 
   Editar Produto </span></h1>
-  <%= form_for :product, url: product_path(@product), method: :patch do |f| %>
+  <%= form_for :product, url: product_path(@product), method: :put do |f| %>
     <% if @product.errors.any? %>
       <div class= "alert alert-danger" id="error_explanation">
         <ul>
@@ -39,7 +39,8 @@
      <div class="col-md-12"><br/>
       <%= f.label 'Marca do Produto' %><br>
       <div class="col-md-4">
-        <%= f.select :brand,  options_for_select(['marca1', 'marca2']), {}, {required: 'true', autofocus: 'true', class: 'form-control'} %>
+        <%= select_tag 'brands', (options_for_select(@brands.collect{|b| [b.name, b.id]}, 
+                        selected: @product.brand.id)), class: 'btn btn-default form-control' %>
       </div>
     </div><br/>
      

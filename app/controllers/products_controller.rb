@@ -26,6 +26,7 @@ before_filter :authorize
 
   def edit
     @product = Product.find(params[:id])
+    @brands = Brand.all
   end
 
   def create
@@ -41,6 +42,7 @@ before_filter :authorize
 
   def update
   	@product = Product.find(params[:id])
+    @product.brand = Brand.find_by_id(params['brands'])
     if @product.update(product_params)
       redirect_to @product
     else
