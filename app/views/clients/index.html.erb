@@ -17,9 +17,9 @@
         <td><%= client.tel %></td>
         <td><%= link_to 'Visualizar', client_path(client), class: 'btn btn-default' %></td>
         <td><%= link_to 'Editar', edit_client_path(client), class: 'btn btn-default' %></td>
-        <td><%= link_to 'Deletar', client_path(client),
-                method: :delete,
-                data: { confirm: 'Tem certeza que quer deletar este cliente?' }, class: 'btn btn-danger' %></td>
+        <td><%= link_to 'Deletar', client_path(client), method: :delete,
+                        data: { confirm: 'Tem certeza que quer deletar este cliente?' }, 
+                        class: 'btn btn-danger' %></td>
       </tr>
     <% end %>
   </table><br/>
