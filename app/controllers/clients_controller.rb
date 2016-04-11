@@ -8,7 +8,6 @@ before_filter :authorize
       format.html
       format.json { render json: @clients }
     end
-    
   end
 
   def show

@@ -8,7 +8,6 @@ before_filter :authorize
       format.html
       format.json { render json: @brands }
     end
-    
   end
 
   def show
@@ -57,5 +56,4 @@ before_filter :authorize
   def brand_params
     params.require(:brand).permit(:name, :brand_type)
   end
-
 end

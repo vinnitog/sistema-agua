@@ -1,17 +1,17 @@
 <div class="container">
-<h1 class="page-header"><span class="glyphicon glyphicon-zoom-in"> 
-Cliente: <%=@client.name%> </span></h1>
-  <div>
-  	<label>Nome:</label>
-  	<%= @client.name %>
-  </div>
-  <div>
-  	<label>Endereço:</label>
-  	<%= @client.address %>
-  </div>
-  <div>
-  	<label>Telefone:</label>
-  	<%= @client.tel %>
-  </div>
-<%= link_to 'Voltar', clients_path, class: 'btn btn-default' %>
+  <h1 class="page-header"><span class="glyphicon glyphicon-zoom-in"> 
+  Cliente: <%=@client.name%> </span></h1>
+    <div>
+    	<label>Nome:</label>
+    	<%= @client.name %>
+    </div>
+    <div>
+    	<label>Endereço:</label>
+    	<%= @client.address %>
+    </div>
+    <div>
+    	<label>Telefone:</label>
+    	<%= @client.tel %>
+    </div>
+  <%= link_to 'Voltar', clients_path, class: 'btn btn-default' %>
 </div>
