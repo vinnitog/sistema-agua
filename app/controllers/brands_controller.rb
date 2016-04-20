@@ -1,5 +1,5 @@
 class BrandsController < ApplicationController
-before_filter :authorize
+#before_filter :authorize
 
   def index
     @brands = Brand.all
@@ -30,7 +30,10 @@ before_filter :authorize
   def create
     @brand = Brand.new(brand_params)
     if @brand.save
-      redirect_to @brand
+      respond_to do |format|
+        format.html { redirect_to @brand }
+        format.json { render json: @brand, status: :created }
+      end
     else
       render 'new'
     end

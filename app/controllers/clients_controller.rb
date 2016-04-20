@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController
-before_filter :authorize
+#before_filter :authorize
 
   def index
     @clients = Client.all
@@ -30,7 +30,10 @@ before_filter :authorize
   def create
     @client = Client.new(client_params)
     if @client.save
-      redirect_to @client
+      respond_to do |format|
+        format.html { redirect_to @client }
+        format.json { render json: @client, status: :created }
+      end
     else
       render 'new'
     end

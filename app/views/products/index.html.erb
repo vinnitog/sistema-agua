@@ -16,7 +16,9 @@
         <td><%= product.name %></td>
         <td><%= product.quantity %></td>
         <td><%= number_with_precision(product.price, precision: 2) %></td>
-        <td><%= product.brand.name %></td>
+        <td>
+          <%= product.brand ? product.brand.name : 'nao existe marca cadastrada' %> 
+        </td>
         <td><%= link_to 'Visualizar', product_path(product), class: 'btn btn-default' %></td>
         <td><%= link_to 'Editar', edit_product_path(product), class: 'btn btn-default' %></td>
         <td><%= link_to 'Deletar', product_path(product), method: :delete,

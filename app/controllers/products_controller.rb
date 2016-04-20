@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-before_filter :authorize
+#before_filter :authorize
   
   def index  
     @products = Product.all
@@ -31,10 +31,13 @@ before_filter :authorize
 
   def create
     @product = Product.new(product_params)
-    @product.brand = Brand.find_by_id(params['marca'])
+    @product.brand = Brand.find_by_id(params['brand']['brand_id'])
 
     if @product.save
-      redirect_to @product
+      respond_to do |format|
+      format.html { redirect_to @product }
+      format.json { render json: @product, status: :created }
+    end
     else
       render 'new'
     end
