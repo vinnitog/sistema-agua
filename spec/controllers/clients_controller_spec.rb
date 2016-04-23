@@ -10,7 +10,7 @@ RSpec.describe ClientsController, type: :controller do
 	describe 'CREATE' do
     it 'test create client', focus: true do
 		  @clients = Client.create(valid_attributes)
-		  expect().to eq(@clients)
+		  expect(:clients).to eq(@clients)
     end
 	end
 

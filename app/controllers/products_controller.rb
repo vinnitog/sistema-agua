@@ -3,7 +3,6 @@ class ProductsController < ApplicationController
   
   def index  
     @products = Product.all
-
     respond_to do |format|
       format.html
       format.json { render json: @products }
@@ -12,7 +11,6 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-
     respond_to do |format|
       format.html
       format.json { render json: @product }
@@ -31,13 +29,13 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    @product.brand = Brand.find_by_id(params['brand']['brand_id'])
-
+    @product.brand = Brand.find_by_id(params['marca'])
+    #@product.brand = Brand.find_by_id(params['brand']['brand_id'])
     if @product.save
       respond_to do |format|
-      format.html { redirect_to @product }
-      format.json { render json: @product, status: :created }
-    end
+        format.html { redirect_to @product }
+        format.json { render json: @product, status: :created }
+      end
     else
       render 'new'
     end
@@ -47,7 +45,10 @@ class ProductsController < ApplicationController
   	@product = Product.find(params[:id])
     @product.brand = Brand.find_by_id(params['brands'])
     if @product.update(product_params)
-      redirect_to @product
+      respond_to do |format|
+        format.html { redirect_to @product }
+        format.json { render json: @product, status: :created }
+      end
     else
       render 'edit'
     end
@@ -56,7 +57,10 @@ class ProductsController < ApplicationController
   def destroy
     @product = Product.find(params[:id])
     @product = Product.destroy(params[:id])
-    redirect_to products_path
+      respond_to do |format|
+        format.html { redirect_to products_path }
+        format.json { render json: @product, status: :created }
+      end
   end
 
   private

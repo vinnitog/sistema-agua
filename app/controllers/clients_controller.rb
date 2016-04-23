@@ -3,7 +3,6 @@ class ClientsController < ApplicationController
 
   def index
     @clients = Client.all
-
     respond_to do |format|
       format.html
       format.json { render json: @clients }
@@ -12,7 +11,6 @@ class ClientsController < ApplicationController
 
   def show
     @client = Client.find(params[:id])
-
     respond_to do |format|
       format.html
       format.json { render json: @client }
@@ -42,7 +40,10 @@ class ClientsController < ApplicationController
   def update
   	@client = Client.find(params[:id])
     if @client.update(client_params)
-      redirect_to @client
+      respond_to do |format|
+        format.html { redirect_to @client }
+        format.json { render json: @client, status: :created }
+      end
     else
       render 'edit'
     end
@@ -51,7 +52,10 @@ class ClientsController < ApplicationController
   def destroy
     @client = Client.find(params[:id])
     @client = Client.destroy(params[:id])
-    redirect_to clients_path
+    respond_to do |format|
+      format.html { redirect_to clients_path }
+      format.json { render json: @client, status: :created }
+    end
   end
 
   private

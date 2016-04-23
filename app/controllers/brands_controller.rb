@@ -3,7 +3,6 @@ class BrandsController < ApplicationController
 
   def index
     @brands = Brand.all
-
     respond_to do |format|
       format.html
       format.json { render json: @brands }
@@ -42,7 +41,10 @@ class BrandsController < ApplicationController
   def update
     @brand = Brand.find(params[:id])
     if @brand.update(brand_params)
-      redirect_to @brand
+      respond_to do |format|
+        format.html { redirect_to @brand }
+        format.json { render json: @brand, status: :created }
+      end
     else
       render 'edit'
     end
@@ -51,7 +53,10 @@ class BrandsController < ApplicationController
   def destroy
     @brand = Brand.find(params[:id])
     @brand = Brand.destroy(params[:id])
-    redirect_to brands_path
+      respond_to do |format|
+        format.html { redirect_to brands_path }
+        format.json { render json: @brand, status: :created }
+      end
   end
 
   private
