@@ -40,7 +40,7 @@
       <%= f.label 'Marca do Produto' %><br>
       <div class="col-md-4">
         <%= select_tag 'brands', (options_for_select(@brands.collect{|b| [b.name, b.id]}, 
-                        selected: @product.brand.id)), class: 'btn btn-default form-control' %>
+                        selected: @product.brand.id)), class: 'form-control' %>
       </div>
     </div><br/>
      
