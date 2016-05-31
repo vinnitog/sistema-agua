@@ -3,7 +3,6 @@
   <table class="table">
     <tr>
       <th>Nome</th>
-      <th>Tipo</th>
       <th>Visualizar</th>
       <th>Editar</th>
       <th>Deletar</th>
@@ -12,7 +11,6 @@
     <% @brands.each do |brand| %>
       <tr>
         <td><%= brand.name %></td>
-        <td><%= brand.brand_type %></td>
         <td><%= link_to 'Visualizar', brand_path(brand), class: 'btn btn-default' %></td>
         <td><%= link_to 'Editar', edit_brand_path(brand), class: 'btn btn-default' %></td>
         <td><%= link_to 'Deletar', brand_path(brand), method: :delete,

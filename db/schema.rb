@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20160406155701) do
 
   create_table "brands", force: :cascade do |t|
     t.string   "name",       limit: 255
-    t.string   "brand_type", limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
