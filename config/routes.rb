@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 	resources :clients
 	resources :products 
   resources :brands
+  resources :orders
 
   get '/entrar' => 'sessions#new'
   post '/entrar' => 'sessions#create'

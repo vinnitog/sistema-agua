@@ -1,0 +1,28 @@
+<div class="container">
+  <h1><span class="glyphicon glyphicon-list-alt"> Pedidos </span></h1>
+  <table class="table">
+    <tr>
+      <th>Data do Pedido</th>
+      <th>Nome do produto</th>
+      <th>Quantidade</th>
+      <th>Valor</th>
+      <th>Visualizar</th>
+      <th>Deletar</th>
+    </tr>
+   
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.date %></td>
+        <td><%= order.product ? order.product.name : 'pedido via api' %></td>
+        <td><%= order.quantity %></td>
+        <td><%= order.value %></td>
+        <td><%= link_to 'Visualizar', order_path(order), class: 'btn btn-default' %></td>
+        <td><%= link_to 'Deletar', order_path(order), method: :delete,
+                data: { confirm: 'Tem certeza que quer deletar esta marca?' }, 
+                class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </table><br/>
+  <%= link_to 'Cadastrar Novo Pedido', new_order_path, class: 'btn btn-primary' %>
+  <%= link_to 'Voltar', home_index_path, class: 'btn btn-default' %>
+</div>
