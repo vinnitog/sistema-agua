@@ -23,6 +23,8 @@
       </tr>
     <% end %>
   </table><br/>
+  <hr/>
   <%= link_to 'Cadastrar Novo Pedido', new_order_path, class: 'btn btn-primary' %>
   <%= link_to 'Voltar', home_index_path, class: 'btn btn-default' %>
+  <%= link_to 'Exportar para Excel', orders_path(format: :xlsx), class: 'btn btn-success pull-right' %>
 </div>

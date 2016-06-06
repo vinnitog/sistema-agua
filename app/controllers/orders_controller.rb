@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
     respond_to do |format|
       format.html
       format.json { render json: @orders }
+      format.xlsx { render xlsx: 'index'}
     end
   end
 
@@ -23,7 +24,6 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.product = Product.find_by_id(params['produto'])
-    binding.pry
     if @order.save
       respond_to do |format|
         format.html { redirect_to @order }
