@@ -2,6 +2,7 @@
   <h1><span class="glyphicon glyphicon-list-alt"> Pedidos </span></h1>
   <table class="table">
     <tr>
+      <th>Nº do Pedido</th>
       <th>Data do Pedido</th>
       <th>Nome do produto</th>
       <th>Quantidade</th>
@@ -12,6 +13,7 @@
    
     <% @orders.each do |order| %>
       <tr>
+        <td><%= order.id %></td>
         <td><%= order.date %></td>
         <td><%= order.product ? order.product.name : 'pedido via api' %></td>
         <td><%= order.quantity %></td>

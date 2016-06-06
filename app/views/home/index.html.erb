@@ -6,12 +6,13 @@
 <body>
 	<div class="container">
     <div class="alert alert-info">
-		  <h1 align="center">Águas D'itália</h1>
-      <p align="right">
+      <%= image_tag("simplify.gif", size: '150x100', class: 'pull-right') %>
+		  <h1 style="color: #fff; margin-left: 450px">Águas D'itália</h1>
+      <p align="left">
         <% if current_user %>
-          <b>Logado como <%= current_user.name %> | <%= link_to "Sair", '/sair' %></b>
+          <b style="color: #fff">Logado como <u><%= current_user.name %></u> | <%= link_to "Sair", '/sair', style: 'color: #fff' %></b>
         <% else %>
-          <b><%= link_to 'Entrar', root_path %> | <%= link_to 'Cadastre-se', '/cadastrar' %></b>
+          <b style="color: #fff"><%= link_to 'Entrar', root_path %> | <%= link_to 'Cadastre-se', '/cadastrar' %></b>
         <% end %>
       </p>
     </div>

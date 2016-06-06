@@ -1,8 +1,8 @@
 wb = xlsx_package.workbook
 wb.add_worksheet(name: "Orders") do |sheet|
-sheet.add_row ['Data do Pedido', 'Nome do Produto', 
+sheet.add_row ['Nº do Pedido', 'Data do Pedido', 'Nome do Produto', 
 			   'Quantidade do Pedido', 'Valor do Pedido']
   @orders.each do |order|
-    sheet.add_row [order.date, order.product.name, order.quantity, order.value]
+    sheet.add_row [order.id, order.date, order.product.name, order.quantity, order.value]
   end
 end
