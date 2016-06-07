@@ -10,6 +10,12 @@ pt-BR:
         name: Nome
         quantity: Quantidade
         price: Preço
+      brand:
+        name: Nome
+      order:
+        date: Data
+        quantity: Quantidade
+        value: Valor
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
